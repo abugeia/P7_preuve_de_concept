@@ -34,26 +34,25 @@ test_if_exist_ds()
 
 print(f"Setup complete. Using torch {torch.__version__} ({torch.cuda.get_device_properties(0).name if torch.cuda.is_available() else 'CPU'})")
 
-abspath = os.path.abspath(__file__)
-dname = os.path.dirname(abspath)
-
+# abspath = os.path.abspath(__file__)
+# dname = os.path.dirname(abspath)
 
 ## Load and test the model with eval file
 os.system('git clone https://github.com/ultralytics/yolov5')  # clone repo
-# os.system('cd yolov5/')
+
 os.chdir("yolov5")
 os.system('pip install -qr requirements.txt')
-# os.system('cd ..')
-os.chdir(dname)
+
+# os.chdir(dname)
+os.chdir('..')
 # clone repo
 os.system('git clone https://github.com/ultralytics/yolov3')
 
-# os.system('cd /yolov3/')
 os.chdir("yolov3")
 # install dependencies
 os.system('pip install -qr requirements.txt')
-# os.system('cd ..')
-os.chdir(dname)
+# os.chdir(dname)
+os.chdir('..')
 
 ##################################################
     # Testing YOLO v3 & v5
@@ -72,7 +71,8 @@ else:
     print('Evaluation of YOLOv5(s) on COCO validation set with cpu')
     print("-"*50)
     subprocess.call(['python', 'val.py', '--weights', 'yolov5m6.pt', '--data', 'data/coco.yaml', '--img', '1280', '--iou', '0.65'])
-os.chdir(dname)
+# os.chdir(dname)
+os.chdir('..')
 
 #----------------- YOLOv3 -----------------
 if syst == 0:
@@ -84,8 +84,10 @@ print("-"*50)
 print('Evaluation of YOLOv3 on COCO validation set with cpu')
 print("-"*50)
 subprocess.call(['python', 'test.py', '--weights', 'yolov3.pt', '--data', 'data/coco.yaml', '--img', '640', '--iou', '0.65'])
-os.chdir(dname)
+# os.chdir(dname)
+os.chdir('..')
 
+################## Old version ##############
 # #----------------- YOLOv5 -----------------
 # # os.system('cd yolov5/')
 # os.chdir("yolov5")
