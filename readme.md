@@ -27,7 +27,9 @@ L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0
 ## References
 
 COCO dataset :     [https://cocodataset.org/#home](https://cocodataset.org/#home)
-YOLOv5 Giuthub     [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+YOLOv5 Github     [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
 ## Results
 
+Inference
+<img src="./img/inference.png" width="600px"/>
