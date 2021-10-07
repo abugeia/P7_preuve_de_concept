@@ -1,0 +1,9 @@
+yolov3
+yolov5
+runs
+flagged
+datasets
+
+# to add in projet if there is a problem with pytorch.hub.load
+models
+utils
