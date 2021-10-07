@@ -30,7 +30,7 @@ else:
     # Gradio
 ##################################################
 
-def yolo(model_idx, im, size=640):
+def yolo(im, size=640):
     '''Wrapper fn for gradio'''
     g = (size / max(im.size))  # gain
     im = im.resize((int(x * g) for x in im.size), Image.ANTIALIAS)  # resize
@@ -42,7 +42,7 @@ def yolo(model_idx, im, size=640):
     return Image.fromarray(results1.imgs[0]), Image.fromarray(results2.imgs[0])
 
 #----- Interface
-in1 = gr.inputs.Radio(['YOLOv3', 'YOLOv5'], label="Model", type='index')
+# in1 = gr.inputs.Radio(['YOLOv3', 'YOLOv5'], label="Model", type='index')
 in2 = gr.inputs.Image(type='pil', label="Original Image")
 out1 = gr.outputs.Image(type="pil", label="YOLOv3")
 out2 = gr.outputs.Image(type="pil", label="YOLOv5")
@@ -53,7 +53,7 @@ description = "YOLO object detection. Upload an image or click an example image 
 article = "Desciption (support html)"
 
 examples = [['zidane.jpg'], ['bus.jpg']]
-iface = gr.Interface(yolo, inputs=[in1, in2], outputs=[out1, out2], title=title, description=description, article=article, examples=examples, analytics_enabled=False).launch(
+iface = gr.Interface(yolo, inputs=[in2], outputs=[out1, out2], title=title, description=description, article=article, examples=examples, analytics_enabled=False).launch(
     debug=True)
 
 iface.launch()
