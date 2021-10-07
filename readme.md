@@ -22,6 +22,7 @@ Application pour comparer les résultats d'inférence entre les deux algorithmes
 ```bash
 python P7_02_inference.py
 ```
+L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0.1:7860/
 
 ## References
 
