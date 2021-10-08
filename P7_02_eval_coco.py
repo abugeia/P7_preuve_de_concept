@@ -1,5 +1,6 @@
 import torch
 import os
+import shutil
 from sys import platform
 import sys, subprocess
 
@@ -14,7 +15,7 @@ elif platform == "win32":
     # Dataset
 ##################################################
 
-def test_if_exist_ds():
+def setup_dataset():
     url_folder = 'https://github.com/ultralytics/yolov5/releases/download/v1.0/'
     val_file = 'coco2017val.zip'
 
@@ -23,28 +24,27 @@ def test_if_exist_ds():
         torch.hub.download_url_to_file(url_folder + val_file, 'tmp.zip')
         if syst == 0:
             os.system('unzip -q tmp.zip -d ./datasets && rm tmp.zip')
+            # we need to copy the dataset as the yolov3 evaluation doesn't work once another evaluation (here yolov5) have been done on the dataset
+            shutil.copytree("./datasets/coco", "./coco")
         elif syst == 1:
             print('you must extract the tmp.zip in /datasets and relaunch the app')
             sys.exit()
 
-test_if_exist_ds()
+setup_dataset()
+    
 ##################################################
     # Load YOLO v3 & v5
 ##################################################
 
 print(f"Setup complete. Using torch {torch.__version__} ({torch.cuda.get_device_properties(0).name if torch.cuda.is_available() else 'CPU'})")
 
-# abspath = os.path.abspath(__file__)
-# dname = os.path.dirname(abspath)
-
 ## Load and test the model with eval file
 os.system('git clone https://github.com/ultralytics/yolov5')  # clone repo
 
 os.chdir("yolov5")
 os.system('pip install -qr requirements.txt')
-
-# os.chdir(dname)
 os.chdir('..')
+    
 # clone repo
 os.system('git clone https://github.com/ultralytics/yolov3')
 
@@ -62,35 +62,29 @@ os.chdir('..')
 os.chdir("yolov5")
 import subprocess
 
-print("-"*60)
+print("-"*50)
 if torch.cuda.is_available():
     print('Evaluation of YOLOv5(m6) on COCO validation set with gpu')
-    print("-"*60)
+    print("-"*50)
     subprocess.call(['python', 'val.py', '--weights', 'yolov5m6.pt', '--data', 'data/coco.yaml', '--img', '1280', '--iou', '0.65', '--half'])
 else:
     print('Evaluation of YOLOv5(s) on COCO validation set with cpu')
-    print("-"*60)
+    print("-"*50)
     subprocess.call(['python', 'val.py', '--weights', 'yolov5m6.pt', '--data', 'data/coco.yaml', '--img', '1280', '--iou', '0.65'])
 # os.chdir(dname)
 os.chdir('..')
 
 #----------------- YOLOv3 -----------------
-if syst == 0:
-    os.system('mv ./datasets/coco ./')
-elif syst == 1:
-    os.system('move ./datasets/coco ./')
 os.chdir("yolov3")
-
 print("-"*60)
 if torch.cuda.is_available():
     print('Evaluation of YOLOv3 on COCO validation set with gpu')
-    print("-"*60)
+    print("-"*50)
     subprocess.call(['python', 'test.py', '--weights', 'yolov3.pt', '--data', 'coco.yaml', '--img', '640', '--iou', '0.65'])
 else:
     print('Evaluation of YOLOv3 on COCO validation set with cpu')
     print("-"*60)
     subprocess.call(['python', 'test.py', '--weights', 'yolov3.pt', '--data', 'coco.yaml', '--img', '640', '--iou', '0.65', '--device', 'cpu'])
-
 # os.chdir(dname)
 os.chdir('..')
 
@@ -120,10 +114,8 @@ os.chdir('..')
 
 # # os.system('cd ..')
 # os.chdir(dname)
-
-
-# # put back ds in datasets/ folder
-if syst == 0:
-    os.system('mv ./coco ./datasets/')
-elif syst == 1:
-    os.system('move ./coco ./datasets/')
+# # # put back ds in datasets/ folder
+# if syst == 0:
+#     os.system('mv ./coco ./datasets/')
+# elif syst == 1:
+#     os.system('move ./coco ./datasets/')

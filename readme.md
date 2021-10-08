@@ -1,8 +1,8 @@
 # P7 Détection d'objets avec YOLO
 
-Ce projet permet :
-    1. d'évaluer le split validation du dataset COCO avec YOLOv3 et YOLOv5.
-    2. de comparer les résultats d'inférence sur une image traitée avec chaque algorithme
+Ce projet permet :  
+    * d'évaluer le split validation du dataset COCO avec YOLOv3 et YOLOv5.  
+    * de comparer les résultats d'inférence sur une image traitée avec chaque algorithme
 
 ## Installation
 
@@ -26,10 +26,17 @@ L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0
 
 ## References
 
-COCO dataset :     [https://cocodataset.org/#home](https://cocodataset.org/#home)
-YOLOv5 Github     [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+COCO dataset :     [https://cocodataset.org/#home](https://cocodataset.org/#home)  
+YOLOv5 Github:     [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
 ## Results
 
-Inference
-<img src="./img/inference.png" width="600px"/>
+### Inference  
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/inference.PNG" width="600px"/>
+
+### Evaluation  
+YOLOv3  
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/yolov3_results.PNG" width="400px"/>
+
+YOLOv5  
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/yolov5_results.PNG" width="400px"/>
