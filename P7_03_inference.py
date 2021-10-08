@@ -18,8 +18,6 @@ else:
     modelYv5 = torch.load('model/modelYv5.pt')
 
 #----- YOLOv3
-# Doesn't work : AttributeError: 'Conv' object has no attribute 'fuseforward'if the model exist
-# ModuleNotFoundError: No module named 'utils.google_utils' if the model doesn't exist
 if not(os.path.exists('model/modelYv3.pt')):
     modelYv3 = torch.hub.load('ultralytics/yolov3', 'yolov3_tiny', pretrained=True, force_reload=True)
     torch.save(modelYv3, 'model/modelYv3.pt')
@@ -29,7 +27,7 @@ else:
 ##################################################
     # Gradio
 ##################################################
-
+#------------ Wrapper
 def yolo(size, iou, conf, im):
     '''Wrapper fn for gradio'''
     g = (int(size) / max(im.size))  # gain
@@ -46,7 +44,7 @@ def yolo(size, iou, conf, im):
     results2.render()  # updates results.imgs with boxes and labels
     return Image.fromarray(results1.imgs[0]), Image.fromarray(results2.imgs[0])
 
-#----- Interface
+#------------ Interface
 in1 = gr.inputs.Radio(['640', '1280'], label="Taille d'image", default='1280', type='value')
 in2 = gr.inputs.Slider(minimum=0, maximum=1, step=0.05, default=0.45, label='NMS IoU threshold')
 in3 = gr.inputs.Slider(minimum=0, maximum=1, step=0.05, default=0.25, label='confidence threshold')

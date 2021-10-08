@@ -33,7 +33,7 @@ def setup_dataset():
 setup_dataset()
     
 ##################################################
-    # Load YOLO v3 & v5
+    # Load gits YOLO v3 & v5
 ##################################################
 
 print(f"Setup complete. Using torch {torch.__version__} ({torch.cuda.get_device_properties(0).name if torch.cuda.is_available() else 'CPU'})")

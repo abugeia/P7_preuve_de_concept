@@ -3,9 +3,9 @@ runs
 flagged
 datasets
 coco
+*.ipynb
+WebApp-Computer-Vision-streamlit
 
 # to add in projet if there is a problem with pytorch.hub.load
 models
 utils
-
-WebApp-Computer-Vision-streamlit
