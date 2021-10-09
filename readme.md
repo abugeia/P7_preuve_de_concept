@@ -3,6 +3,7 @@
 Ce projet permet :  
     * d'évaluer le split validation du dataset COCO avec YOLOv3 et YOLOv5.  
     * de comparer les résultats d'inférence sur une image traitée avec chaque algorithme
+    * D'entraîner un modèle YOLOv5 sur une extraction du dataset Open Image
 
 ## Installation
 
@@ -24,6 +25,9 @@ python P7_02_inference.py
 ```
 L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0.1:7860/
 
+Entrainement de YOLO sur le dataset OpenImage
+Notebook : P7_04_yolov5_train_eval_OpenImages.ipynb
+
 ## References
 
 COCO dataset :     [https://cocodataset.org/#home](https://cocodataset.org/#home)  
@@ -40,3 +44,6 @@ YOLOv3
 
 YOLOv5  
 <img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/yolov5_results.PNG" width="400px"/>
+
+### Trained YOLO on OpenImage dataset
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/inference_trained_yolo.PNG" width="800px"/>

@@ -60,16 +60,15 @@ os.chdir('..')
 
 #----------------- YOLOv5 -----------------
 os.chdir("yolov5")
-import subprocess
 
-print("-"*50)
+print("-"*60)
 if torch.cuda.is_available():
     print('Evaluation of YOLOv5(m6) on COCO validation set with gpu')
-    print("-"*50)
+    print("-"*60)
     subprocess.call(['python', 'val.py', '--weights', 'yolov5m6.pt', '--data', 'data/coco.yaml', '--img', '1280', '--iou', '0.65', '--half'])
 else:
     print('Evaluation of YOLOv5(s) on COCO validation set with cpu')
-    print("-"*50)
+    print("-"*60)
     subprocess.call(['python', 'val.py', '--weights', 'yolov5m6.pt', '--data', 'data/coco.yaml', '--img', '1280', '--iou', '0.65'])
 # os.chdir(dname)
 os.chdir('..')
