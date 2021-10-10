@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 Evaluation du split validation du dataset COCO avec YOLOv3 et YOLOv5
 
-<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/p7_02_eval_coco.png" width="600px"/>
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_02_eval_coco.png" width="600px"/>
 
 ```bash
 python P7_02_eval_coco.py
