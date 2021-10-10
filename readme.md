@@ -23,12 +23,13 @@ python P7_02_eval_coco.py
 Application pour comparer les résultats d'inférence entre les deux algorithmes
 
 <img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_03_inference.png" width="600px"/>
-```bash
-python P7_02_inference.py
-```
-L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0.1:7860/
 
-Entrainement de YOLO sur le dataset OpenImage
+```bash
+python P7_03_inference.py
+```
+L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0.1:7860/  
+
+Entrainement de YOLO sur le dataset OpenImage  
 Notebook : P7_04_yolov5_train_eval_OpenImages.ipynb
 
 <img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_04_yolov5_train_eval_OIds.png" width="600px"/>
@@ -36,7 +37,7 @@ Notebook : P7_04_yolov5_train_eval_OpenImages.ipynb
 ## References
 
 COCO dataset    :   [https://cocodataset.org/#home](https://cocodataset.org/#home)  
-YOLOv5 Githu    :   [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+YOLOv5 Githu    :   [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)  
 OIDv6 Github    :   [https://github.com/NanoCode012/OIDv6_ToolKit_Download_Open_Images_Support_Yolo_Format](https://github.com/NanoCode012/OIDv6_ToolKit_Download_Open_Images_Support_Yolo_Format)
 
 ## Results
