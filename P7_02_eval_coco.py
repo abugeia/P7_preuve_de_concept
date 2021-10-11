@@ -3,6 +3,7 @@ import os
 import shutil
 from sys import platform
 import sys, subprocess
+import timeit
 
 if platform == "linux" or platform == "linux2":
     syst = 0
@@ -55,7 +56,7 @@ os.system('pip install -qr requirements.txt')
 os.chdir('..')
 
 ##################################################
-    # Testing YOLO v3 & v5
+    # Evaluate mAP YOLO v3 & v5
 ##################################################
 
 #----------------- YOLOv5 -----------------
@@ -86,6 +87,37 @@ else:
     subprocess.call(['python', 'test.py', '--weights', 'yolov3.pt', '--data', 'coco.yaml', '--img', '640', '--iou', '0.65', '--device', 'cpu'])
 # os.chdir(dname)
 os.chdir('..')
+
+##################################################
+    # Evaluate inference time YOLO v3 & v5
+##################################################
+
+#----------------- YOLOv5 -----------------
+start_time = timeit.default_timer()
+
+os.chdir("yolov5")
+print("-"*60)
+print('Inference on COCO validation set - YOLOv5')
+print("-"*60)
+subprocess.run(['python', 'detect.py', '--source', '../datasets/coco/images/val2017', '--weights', 'yolov5m6.pt', '--conf', '0.25', '--name', 'YOLOv5'])
+os.chdir('..')
+
+process_time = timeit.default_timer() - start_time
+print("Total time : {:.2f}s".format(process_time))
+
+
+#----------------- YOLOv3 -----------------
+start_time = timeit.default_timer()
+
+os.chdir("yolov3")
+print("-"*60)
+print('Inference on COCO validation set - YOLOv5')
+print("-"*60)
+subprocess.run(['python', 'detect.py', '--source', '../datasets/coco/images/val2017', '--weights', 'yolov3.pt', '--conf', '0.25', '--name', 'YOLOv3'])
+os.chdir('..')
+
+process_time = timeit.default_timer() - start_time
+print("Total time : {:.2f}s".format(process_time))
 
 ################## Old version ##############
 # #----------------- YOLOv5 -----------------

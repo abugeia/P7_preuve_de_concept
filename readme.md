@@ -15,14 +15,14 @@ pip install -r requirements.txt
 
 Evaluation du split validation du dataset COCO avec YOLOv3 et YOLOv5
 
-<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_02_eval_coco.png" width="600px"/>
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_02_eval_coco.png" width="400px"/>
 
 ```bash
 python P7_02_eval_coco.py
 ```
-Application pour comparer les résultats d'inférence entre les deux algorithmes
+Application pour comparer les résultats d'inférence entre les deux algorithmes en mAP et en temps de calcul.
 
-<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_03_inference.png" width="600px"/>
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_03_inference.png" width="400px"/>
 
 ```bash
 python P7_03_inference.py
@@ -32,7 +32,7 @@ L'application est ensuite visible dans un navigateur à l'adresse http://127.0.0
 Entrainement de YOLO sur le dataset OpenImage  
 Notebook : P7_04_yolov5_train_eval_OpenImages.ipynb
 
-<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_04_yolov5_train_eval_OIds.png" width="600px"/>
+<img src="https://github.com/abugeia/7_preuve_de_concept/blob/master/img/P7_04_yolov5_train_eval_OIds.png" width="400px"/>
 
 ## References
 
