@@ -56,7 +56,7 @@ title = "YOLO"
 description = "YOLO object detection. Upload an image and click on submit."
 article = "This page show the differences of inferences between YOLOv3 and YOLOv5"
 
-examples = [['640',0.45, 0.25, 'zidane.jpg'], ['640',0.45, 0.25, 'bus.jpg']]
+examples = [['640',0.45, 0.25, 'img/zidane.jpg'], ['640',0.45, 0.25, 'img/bus.jpg']]
 iface = gr.Interface(yolo, inputs=[in1, in2, in3, in4], outputs=[out1, out2], title=title, description=description, article=article, examples=examples, analytics_enabled=False).launch(
     debug=True)
 
